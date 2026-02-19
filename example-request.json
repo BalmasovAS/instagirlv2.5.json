@@ -1,0 +1,296 @@
+{
+  "input": {
+    "workflow": {
+      "3": {
+        "inputs": {
+          "text": "lisa, Instagirl, l3n0v0, a lively, photorealistic video of a petite woman, candid lakeside selfie with a mischievous grin, wearing a sheer crop that you can see her breasts through, high-waist ripped jeans, rocky shore background with gentle waves and distant trees, long chestnut hair in a messy ponytail, oval face with sharp cheekbones, she is holding the cammera out of frame, soft morning light with a hazy glow, amateur cellphone quality with visible noise, over-sharpened edges, vibrant HDR effect, adventurous outdoor vibe",
+          "clip": [
+            "68",
+            1
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "Positive Prompt"
+        }
+      },
+      "4": {
+        "inputs": {
+          "text": "色调艳丽，过曝，静态，细节模糊不清，字幕，风格，作品，画作，画面，静止，整体发灰，最差质量，低质量，JPEG压缩残留，丑陋的，残缺的，多余的手指，画得不好的手部，画得不好的脸部，畸形的，毁容的，形态畸形的肢体，手指融合，静止不动的画面，杂乱的背景，三条腿，背景人很多，倒着走, censored, sunburnt skin, rashy skin, red cheeks, pouty face, duckbil face\n",
+          "clip": [
+            "68",
+            1
+          ]
+        },
+        "class_type": "CLIPTextEncode",
+        "_meta": {
+          "title": "Negative Prompt"
+        }
+      },
+      "5": {
+        "inputs": {
+          "value": 720
+        },
+        "class_type": "EmptyHunyuanLatentVideo",
+        "_meta": {
+          "title": "EmptyHunyuanLatentVideo"
+        }
+      },
+      "8": {
+        "inputs": {
+          "filename": "wan_2.1_vae.safetensors"
+        },
+        "class_type": "VAELoader",
+        "_meta": {
+          "title": "VAELoader"
+        }
+      },
+      "9": {
+        "inputs": {
+          "samples": [
+            "36",
+            0
+          ],
+          "vae": [
+            "8",
+            0
+          ]
+        },
+        "class_type": "VAEDecode",
+        "_meta": {
+          "title": "VAEDecode"
+        }
+      },
+      "10": {
+        "inputs": {
+          "filename_prefix": "ComfyUI",
+          "images": [
+            "9",
+            0
+          ]
+        },
+        "class_type": "SaveImage",
+        "_meta": {
+          "title": "SaveImage"
+        }
+      },
+      "22": {
+        "inputs": {
+          "filename": "umt5_xxl_fp8_e4m3fn_scaled.safetensors"
+        },
+        "class_type": "CLIPLoader",
+        "_meta": {
+          "title": "CLIPLoader"
+        }
+      },
+      "35": {
+        "inputs": {
+          "text": "enable",
+          "model": [
+            "100",
+            0
+          ],
+          "positive": [
+            "3",
+            0
+          ],
+          "negative": [
+            "4",
+            0
+          ],
+          "latent_image": [
+            "5",
+            0
+          ],
+          "noise_seed": [
+            "67",
+            0
+          ]
+        },
+        "class_type": "KSamplerAdvanced",
+        "_meta": {
+          "title": "KSamplerAdvanced"
+        }
+      },
+      "36": {
+        "inputs": {
+          "text": "enable",
+          "model": [
+            "102",
+            0
+          ],
+          "positive": [
+            "3",
+            0
+          ],
+          "negative": [
+            "4",
+            0
+          ],
+          "latent_image": [
+            "35",
+            0
+          ],
+          "noise_seed": [
+            "67",
+            0
+          ]
+        },
+        "class_type": "KSamplerAdvanced",
+        "_meta": {
+          "title": "KSamplerAdvanced"
+        }
+      },
+      "67": {
+        "inputs": {
+          "value": 669817269655390
+        },
+        "class_type": "Seed Generator",
+        "_meta": {
+          "title": "Seed Generator"
+        }
+      },
+      "68": {
+        "inputs": {
+          "lora_name": "Instagirlv2.5-HIGH.safetensors",
+          "strength_model": 1,
+          "strength_clip": 1,
+          "model": [
+            "73",
+            0
+          ],
+          "clip": [
+            "22",
+            0
+          ]
+        },
+        "class_type": "LoraLoader",
+        "_meta": {
+          "title": "LoraLoader"
+        }
+      },
+      "70": {
+        "inputs": {
+          "filename": "Wan21_T2V_14B_lightx2v_cfg_step_distill_lora_rank32.safetensors",
+          "model": [
+            "74",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "LoraLoaderModelOnly"
+        }
+      },
+      "71": {
+        "inputs": {
+          "filename": "Instagirlv2.5-LOW.safetensors",
+          "model": [
+            "70",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "LoraLoaderModelOnly"
+        }
+      },
+      "72": {
+        "inputs": {
+          "filename": "l3n0v0.safetensors",
+          "model": [
+            "76",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "LoraLoaderModelOnly"
+        }
+      },
+      "73": {
+        "inputs": {
+          "filename": "Wan2.2-T2V-A14B-HighNoise-Q8_0.gguf"
+        },
+        "class_type": "UnetLoaderGGUF",
+        "_meta": {
+          "title": "UnetLoaderGGUF"
+        }
+      },
+      "74": {
+        "inputs": {
+          "filename": "Wan2.2-T2V-A14B-LowNoise-Q8_0.gguf"
+        },
+        "class_type": "UnetLoaderGGUF",
+        "_meta": {
+          "title": "UnetLoaderGGUF"
+        }
+      },
+      "76": {
+        "inputs": {
+          "filename": "277391af-67b3-4f6f-9622-be5408457c57_346d3e44-599d-4a88-b5ad-3ba72b4ed90c.safetensors",
+          "model": [
+            "71",
+            0
+          ]
+        },
+        "class_type": "LoraLoaderModelOnly",
+        "_meta": {
+          "title": "LoraLoaderModelOnly"
+        }
+      },
+      "100": {
+        "inputs": {
+          "text": "inductor",
+          "model": [
+            "68",
+            0
+          ]
+        },
+        "class_type": "TorchCompileModelWanVideoV2",
+        "_meta": {
+          "title": "TorchCompileModelWanVideoV2"
+        }
+      },
+      "101": {
+        "inputs": {
+          "text": "auto",
+          "model": [
+            "100",
+            0
+          ]
+        },
+        "class_type": "PathchSageAttentionKJ",
+        "_meta": {
+          "title": "PathchSageAttentionKJ"
+        }
+      },
+      "102": {
+        "inputs": {
+          "text": "auto",
+          "model": [
+            "103",
+            0
+          ]
+        },
+        "class_type": "PathchSageAttentionKJ",
+        "_meta": {
+          "title": "PathchSageAttentionKJ"
+        }
+      },
+      "103": {
+        "inputs": {
+          "text": "inductor",
+          "model": [
+            "72",
+            0
+          ]
+        },
+        "class_type": "TorchCompileModelWanVideoV2",
+        "_meta": {
+          "title": "TorchCompileModelWanVideoV2"
+        }
+      }
+    }
+  }
+}
